@@ -9,11 +9,14 @@ import UIKit
 
 class MainViewController: UITableViewController {
     
+    var networkManager = NetworkManager()
+    
     let ItemArray = ["Characters", "Locations", "Episodes"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        networkManager.fetchCharacters()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,16 +32,16 @@ class MainViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "GoToCharacters", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! CharactersViewController
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.viewDidLoad()
-        }
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "GoToCharacters", sender: self)
+//    }
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destinationVC = segue.destination as! CharactersViewController
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            destinationVC.viewDidLoad()
+//        }
+//    }
 
 }
 

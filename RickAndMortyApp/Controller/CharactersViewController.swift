@@ -11,10 +11,10 @@ class CharactersViewController: UIViewController {
     
     var networkManager = NetworkManager()
     
-    override func viewDidLoad() {
-        networkManager.fetchCharacterData()
-    }
-    
+//    override func viewDidLoad() {
+//        networkManager.fetchCharacterData()
+//    }
+//    
     
     
 }
