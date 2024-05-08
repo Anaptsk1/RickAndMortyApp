@@ -32,28 +32,27 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="v2Y-Ab-dkk" kind="presentation" identifier="GoToCharacters" id="RMV-cx-NhB"/>
+                        <segue destination="FBK-KM-b6I" kind="presentation" identifier="GoToCharacters" id="ncr-eR-d2b"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWq-Yg-aQX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="-173"/>
+            <point key="canvasLocation" x="184" y="-173"/>
         </scene>
         <!--Characters View Controller-->
-        <scene sceneID="zGW-2f-yxn">
+        <scene sceneID="eXV-jv-036">
             <objects>
-                <viewController id="v2Y-Ab-dkk" customClass="CharactersViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Evy-ZX-8na">
+                <viewController id="FBK-KM-b6I" customClass="CharactersViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IRV-P1-Qx7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="F2m-Pi-l5n"/>
+                        <viewLayoutGuide key="safeArea" id="QjZ-54-MGz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rT0-1k-lKb"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Xs-8e-z9x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pXX-TV-Hca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="-173"/>
+            <point key="canvasLocation" x="1100" y="-698"/>
         </scene>
     </scenes>
     <resources>

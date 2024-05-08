@@ -9,39 +9,65 @@ import UIKit
 
 class MainViewController: UITableViewController {
     
-    var networkManager = NetworkManager()
+    let itemArray = ["Characters", "Locations", "Episodes"]
     
-    let ItemArray = ["Characters", "Locations", "Episodes"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        networkManager.fetchCharacters()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        ItemArray.count
+        return itemArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath)
-        
-        cell.textLabel?.text = ItemArray[indexPath.row]
-        
+        cell.textLabel?.text = itemArray[indexPath.row]
         return cell
         
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "GoToCharacters", sender: self)
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destinationVC = segue.destination as! CharactersViewController
-//        if let indexPath = tableView.indexPathForSelectedRow {
-//            destinationVC.viewDidLoad()
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+        tableView.deselectRow(at: indexPath, animated: true)
 
+        var segueIdentifier: String?
+                
+                switch indexPath.row {
+                case 0:
+                    segueIdentifier = "GoToCharacters"
+                case 1:
+                    segueIdentifier = "GoToLocations"
+                case 2:
+                    segueIdentifier = "GoToEpisodes"
+                default:
+                    print("Invalid selection.")
+                }
+                
+                if let identifier = segueIdentifier {
+                    performSegue(withIdentifier: identifier, sender: self)
+                }
+            }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+
+           switch segue.identifier {
+           case "GoToCharacters":
+               let destinationVC = segue.destination as! CharactersViewController
+               // Pass any data to destinationVC if needed
+               destinationVC.viewDidLoad()
+           case "GoToLocations":
+               let destinationVC = segue.destination as! LocationsViewController
+               // Pass any data to destinationVC if needed
+               destinationVC.viewDidLoad()
+           case "GoToEpisodes":
+               let destinationVC = segue.destination as! EpisodesViewController
+               // Pass any data to destinationVC if needed
+               destinationVC.viewDidLoad()
+           default:
+               print("No such segue identifier found")
+           }
+    }
 }
 

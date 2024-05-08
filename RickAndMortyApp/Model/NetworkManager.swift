@@ -9,125 +9,55 @@ import Foundation
 
 class NetworkManager: ObservableObject {
     
-    let urlString = "https://rickandmortyapi.com/api/character"
+    static let shared = NetworkManager()
     
-    func fetchCharacters() {
-        performRequest(urlString: urlString)
+    enum APIError: Error {
+        case invalidURL
+        case requestFailed
     }
     
-    func performRequest (urlString: String) {
+    enum Endpoint: String {
+        case characters = "/api/character"
+        case locations = "/api/location"
+        case episodes = "/api/episode"
+    }
+    
+    func fetchData<T: Decodable>(from endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
         
-        // 1. Create a URL
+        var componentURL = URLComponents()
+        componentURL.scheme = "https"
+        componentURL.host = "rickandmortyapi.com"
+        componentURL.path = endpoint.rawValue
         
-        if let url = URL(string: urlString) {
-            
-            // 2. Create a URLSession
-            
-            let session = URLSession(configuration: .default)
-            
-            // 3. Give the session a task
-            
-            let task = session.dataTask(with: url) { data, response, error in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                
-                if let safeData = data {
-                    self.parseJSON(characterData: safeData)
-                }
-                
-            }
-            
-            // 4. Start the task
-            
-            task.resume()
-            
+        guard let validURL = componentURL.url else {
+            completion(.failure(APIError.invalidURL))
+            return
         }
         
+        URLSession.shared.dataTask(with: validURL) { data, response, error in
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                print("API Status: \(httpResponse.statusCode)")
+            }
+            
+            guard let validData = data, error == nil else {
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.failure(APIError.requestFailed))
+                }
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(T.self, from: validData)
+                completion(.success(results))
+            } catch let serializationError {
+                print("JSON Decoding Error: \(serializationError)")
+                completion(.failure(serializationError))
+            }
+            
+        }.resume()
     }
-    
-    func parseJSON (characterData: Data) {
-        
-        
-        
-    }
-    
-    
-    
-    
-
-//    @Published var characters = [Character]()
-//    @Published var episodes = [Episode]()
-//    @Published var locations = [Location]()
-//    
-//    func fetchCharacterData() {
-//        if let url = URL(string: "https://rickandmortyapi.com/api/character" ) {
-//            let session = URLSession(configuration: .default)
-//            let task = session.dataTask(with: url) { (data, response, error) in
-//                if error == nil {
-//                    let decoder = JSONDecoder()
-//                    if let safeData = data {
-//                        do {
-//                            let results = try decoder.decode(Results.self, from: safeData)
-//                            DispatchQueue.main.async {
-//                                self.characters = results.Character
-//                            }
-//                        } catch {
-//                            print(error)
-//                        }
-//                    }
-//                }
-//            }
-//            task.resume()
-//        }
-//    }
-//    
-//    func fetchEpisodeData() {
-//        if let url = URL(string: "https://rickandmortyapi.com/api/episode" ) {
-//            let session = URLSession(configuration: .default)
-//            let task = session.dataTask(with: url) { (data, response, error) in
-//                if error == nil {
-//                    let decoder = JSONDecoder()
-//                    if let safeData = data {
-//                        do {
-//                            let results = try decoder.decode(Results.self, from: safeData)
-//                            DispatchQueue.main.async {
-//                                self.episodes = results.Episode
-//                            }
-//                        } catch {
-//                            print(error)
-//                        }
-//                    }
-//                }
-//            }
-//            task.resume()
-//        }
-//    }
-//    
-//    func fetchLocationData() {
-//        if let url = URL(string: "https://rickandmortyapi.com/api/episode" ) {
-//            let session = URLSession(configuration: .default)
-//            let task = session.dataTask(with: url) { (data, response, error) in
-//                if error == nil {
-//                    let decoder = JSONDecoder()
-//                    if let safeData = data {
-//                        do {
-//                            let results = try decoder.decode(Results.self, from: safeData)
-//                            DispatchQueue.main.async {
-//                                self.locations = results.Location
-//                            }
-//                        } catch {
-//                            print(error)
-//                        }
-//                    }
-//                }
-//            }
-//            task.resume()
-//        }
-//    }
-//    
-//    
-//   
     
 }
