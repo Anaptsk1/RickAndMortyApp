@@ -8,10 +8,10 @@ import UIKit
 
 class LocationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var tableView: UITableView! // Make sure this is connected in the storyboard
+    @IBOutlet weak var tableView: UITableView!
     
     var locations: [Location] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -24,8 +24,7 @@ class LocationsViewController: UIViewController, UITableViewDataSource, UITableV
             DispatchQueue.main.async {
                 switch result {
                 case .success(let results):
-                    print("\(results)")
-//                    self?.locations = locationResults.results
+                    self?.locations = results.results
                     self?.tableView.reloadData() // Reload the table view here
                 case .failure(let error):
                     // Handle any errors
@@ -36,11 +35,11 @@ class LocationsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     // MARK: - Table view data source
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return locations.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
         let location = locations[indexPath.row]

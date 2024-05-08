@@ -15,6 +15,8 @@ class MainViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
@@ -27,47 +29,49 @@ class MainViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
+        
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
         var segueIdentifier: String?
-                
-                switch indexPath.row {
-                case 0:
-                    segueIdentifier = "GoToCharacters"
-                case 1:
-                    segueIdentifier = "GoToLocations"
-                case 2:
-                    segueIdentifier = "GoToEpisodes"
-                default:
-                    print("Invalid selection.")
-                }
-                
-                if let identifier = segueIdentifier {
-                    performSegue(withIdentifier: identifier, sender: self)
-                }
-            }
+        
+        switch indexPath.row {
+        case 0:
+            segueIdentifier = "GoToCharacters"
+        case 1:
+            segueIdentifier = "GoToLocations"
+        case 2:
+            segueIdentifier = "GoToEpisodes"
+        default:
+            print("Invalid selection.")
+        }
+        
+        if let identifier = segueIdentifier {
+            performSegue(withIdentifier: identifier, sender: self)
+        }
+    }
+    
+    //MARK: - Handling multiple screens
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-
-           switch segue.identifier {
-           case "GoToCharacters":
-               let destinationVC = segue.destination as! CharactersViewController
-               // Pass any data to destinationVC if needed
-               destinationVC.viewDidLoad()
-           case "GoToLocations":
-               let destinationVC = segue.destination as! LocationsViewController
-               // Pass any data to destinationVC if needed
-               destinationVC.viewDidLoad()
-           case "GoToEpisodes":
-               let destinationVC = segue.destination as! EpisodesViewController
-               // Pass any data to destinationVC if needed
-               destinationVC.viewDidLoad()
-           default:
-               print("No such segue identifier found")
-           }
+        
+        switch segue.identifier {
+        case "GoToCharacters":
+            let destinationVC = segue.destination as! CharactersViewController
+            // Pass any data to destinationVC if needed
+            destinationVC.viewDidLoad()
+        case "GoToLocations":
+            let destinationVC = segue.destination as! LocationsViewController
+            // Pass any data to destinationVC if needed
+            destinationVC.viewDidLoad()
+        case "GoToEpisodes":
+            let destinationVC = segue.destination as! EpisodesViewController
+            // Pass any data to destinationVC if needed
+            destinationVC.viewDidLoad()
+        default:
+            print("No such segue identifier found")
+        }
     }
 }
 
