@@ -8,14 +8,17 @@
 import UIKit
 
 struct CharacterResults: Codable {
+    let info: Info
     var results: [Character]
 }
 
 struct LocationResults: Codable {
+    let info: Info
     var results: [Location]
 }
 
 struct EpisodeResults: Codable {
+    let info: Info
     var results: [Episode]
 }
 
@@ -48,4 +51,10 @@ struct Episode: Codable {
     var episode: String
     var characters: [String]
     
+}
+
+struct Info: Codable {
+    let count: Int
+    let pages: Int
+    let next: String?
 }

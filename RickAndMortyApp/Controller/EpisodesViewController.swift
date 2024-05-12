@@ -7,32 +7,54 @@
 
 import UIKit
 
-class EpisodesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EpisodesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var episodes: [Episode] = []
+    var nextURL: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        //        searchBar.delegate = self
         fetchEpisodesData()
     }
     
     private func fetchEpisodesData() {
-        NetworkManager.shared.fetchData(from: .episodes) { [weak self] (result: Result<EpisodeResults, Error>) in
+        
+        let endPoint: URL
+        
+        if let nextURL = nextURL {
+            endPoint = nextURL
+        } else {
+            endPoint = URL(string: "https://rickandmortyapi.com/api/episode")!
+        }
+        
+        URLSession.shared.dataTask(with: endPoint) { [weak self] (data, response, error) in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let results):
-                    self?.episodes = results.results
-                    self?.tableView.reloadData() // Reload the table view here
-                case .failure(let error):
-                    // Handle any errors
+                if let error = error {
                     print(error.localizedDescription)
+                    return
+                }
+                
+                guard let validData = data else {
+                    print("No data")
+                    return
+                }
+                
+                do {
+                    let results = try JSONDecoder().decode(EpisodeResults.self, from: validData)
+                    self?.episodes.append(contentsOf: results.results)
+                    self?.nextURL = URL(string: results.info.next ?? "")
+                    self?.tableView.reloadData()
+                } catch {
+                    print("JSON Decoding Error: \(error)")
                 }
             }
-        }
+        }.resume()
     }
     
     // MARK: - Table view data source
@@ -45,9 +67,12 @@ class EpisodesViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath)
         let episode = episodes[indexPath.row]
         cell.textLabel?.text = episode.name
-        // Configure the rest of your cell with episode details
         return cell
     }
     
-    // Rest of your view controller code...
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == episodes.count - 1, nextURL != nil {
+            fetchEpisodesData()
+        }
+    }
 }

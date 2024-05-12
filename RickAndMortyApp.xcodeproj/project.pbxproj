@@ -18,6 +18,7 @@
 		89D61E522BE2CF2100C6FF23 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D61E512BE2CF2100C6FF23 /* NetworkManager.swift */; };
 		89D61E7B2BEB78BC00C6FF23 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D61E7A2BEB78BC00C6FF23 /* LocationsViewController.swift */; };
 		89D61E7D2BEB78E600C6FF23 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D61E7C2BEB78E600C6FF23 /* EpisodesViewController.swift */; };
+		89D61E812BF1081200C6FF23 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D61E802BF1081200C6FF23 /* CharacterDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		89D61E512BE2CF2100C6FF23 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		89D61E7A2BEB78BC00C6FF23 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		89D61E7C2BEB78E600C6FF23 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		89D61E802BF1081200C6FF23 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				89D61E4F2BE2C8B600C6FF23 /* CharactersViewController.swift */,
 				89D61E7A2BEB78BC00C6FF23 /* LocationsViewController.swift */,
 				89D61E7C2BEB78E600C6FF23 /* EpisodesViewController.swift */,
+				89D61E802BF1081200C6FF23 /* CharacterDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				89D61E502BE2C8B600C6FF23 /* CharactersViewController.swift in Sources */,
 				89D61E382BE2729B00C6FF23 /* AppDelegate.swift in Sources */,
 				89D61E3A2BE2729B00C6FF23 /* SceneDelegate.swift in Sources */,
+				89D61E812BF1081200C6FF23 /* CharacterDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
