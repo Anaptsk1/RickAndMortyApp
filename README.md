@@ -1,1 +1,1 @@
-Rick & Morty app, Storyboard version.
+Rick & Morty app, Storyboard and SwiftUI versions.
