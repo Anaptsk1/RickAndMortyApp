@@ -7,19 +7,21 @@
 import UIKit
 import CoreData
 
-class CharactersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CharactersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var characters: [Character] = []
+    var characters: [Character] = [] // All characters
+    var filteredCharacters: [Character] = [] // characters that match the search
+    var isSearching = false
     var nextURL: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-//        searchBar.delegate = self
+        searchBar.delegate = self
         fetchCharactersData()
     }
     
@@ -60,12 +62,12 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.count
+        return isSearching ? filteredCharacters.count : characters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath)
-        let character = characters[indexPath.row]
+        let character = isSearching ? filteredCharacters[indexPath.row] : characters[indexPath.row]
         cell.textLabel?.text = character.name
         return cell
     }
@@ -77,25 +79,42 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "GoToCharacterDetails", sender: self)
+        performSegue(withIdentifier: "ShowCharacterDetails", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let destinationVC = segue.destination as! CharacterDetailsViewController
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.viewDidLoad()
+        if segue.identifier == "ShowCharacterDetails",
+           let detailsVC = segue.destination as? CharacterDetailsViewController,
+           let indexPath = tableView.indexPathForSelectedRow {
+            detailsVC.character = characters[indexPath.row]
         }
+    }
+    
+    // MARK: - UISearchBar delegate methods
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+                    isSearching = false
+                } else {
+                    isSearching = true
+                    filteredCharacters = characters.filter { character in
+                        character.name.lowercased().contains(searchText.lowercased())
+                    }
+                }
+                tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+                searchBar.text = ""
+                searchBar.resignFirstResponder()
+                tableView.reloadData()
     }
 }
 
-//    // MARK: - UISearchBar delegate methods
-//
-//    extension CharactersViewController: UISearchBarDelegate {
-//
-//        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//            characters = characters.filter("name CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
-//            tableView.reloadData()
-//        }
-//}
+    
+
+
+
 

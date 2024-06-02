@@ -1,0 +1,5 @@
+ extern const unsigned char Pods_RickAndMortyAppVersionString[];
+ extern const double Pods_RickAndMortyAppVersionNumber;
+
+ const unsigned char Pods_RickAndMortyAppVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:Pods_RickAndMortyApp  PROJECT:Pods-1" "\n";
+ const double Pods_RickAndMortyAppVersionNumber __attribute__ ((used)) = (double)1.;

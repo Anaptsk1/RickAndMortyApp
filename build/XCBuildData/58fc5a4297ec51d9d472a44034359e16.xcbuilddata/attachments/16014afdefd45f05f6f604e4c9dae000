@@ -1,0 +1,15 @@
+{
+  "" : {
+    "const-values" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonFramework-master.swiftconstvalues",
+    "dependencies" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonFramework-master.d",
+    "diagnostics" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonFramework-master.dia",
+    "emit-module-dependencies" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonFramework-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonFramework-master-emit-module.dia",
+    "swift-dependencies" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonFramework-master.swiftdeps"
+  },
+  "/Users/anka/Desktop/iOS Development/RickAndMortyApp/Pods/ChameleonFramework/Pod/Classes/Swift/ChameleonShorthand.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonShorthand.o",
+    "llvm-bc" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonShorthand.bc",
+    "object" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/Objects-normal/arm64/ChameleonShorthand.o"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Release-iphoneos/ChameleonFramework/ChameleonFramework.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Release-iphoneos/ChameleonFramework/ChameleonFramework.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "ChameleonFramework-Swift.h",
+      'external-contents': "/Users/anka/Desktop/iOS Development/RickAndMortyApp/build/Pods.build/Release-iphoneos/ChameleonFramework.build/unextended-interface-header.h",
+    }]
+    }]
+}

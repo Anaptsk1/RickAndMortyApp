@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'Pods-RickAndMortyApp' in project 'Pods'
+➜ Explicit dependency on target 'ChameleonFramework' in project 'Pods'
+Target 'ChameleonFramework' in project 'Pods' (no dependencies)

@@ -1,0 +1,49 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98e7464a1353daf6c001166f42e274f11a"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e985d26ee4532fd5180d6784dc615787716"
+    }
+  ],
+  "containerPath" : "/Users/anka/Desktop/iOS Development/RickAndMortyApp/Pods/Pods.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/anka/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/anka/Library/Developer/Xcode/DerivedData/Pods-fpnxqjyfxjtxmahgiquzavjnefex/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/anka/Library/Developer/Xcode/DerivedData/Pods-fpnxqjyfxjtxmahgiquzavjnefex/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}
