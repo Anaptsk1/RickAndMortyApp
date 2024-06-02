@@ -167,7 +167,7 @@
                     <connections>
                         <outlet property="searchBar" destination="WZq-23-flL" id="TFS-C1-XII"/>
                         <outlet property="tableView" destination="iIW-Xp-7wj" id="Eap-AA-Tov"/>
-                        <segue destination="lyK-KA-EgU" kind="presentation" identifier="GoToCharacterDetails" id="qJ6-1V-Zln"/>
+                        <segue destination="lyK-KA-EgU" kind="presentation" identifier="ShowCharacterDetails" id="qJ6-1V-Zln"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXX-TV-Hca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
