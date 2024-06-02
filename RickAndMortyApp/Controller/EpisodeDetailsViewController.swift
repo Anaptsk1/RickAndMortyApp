@@ -1,32 +1,32 @@
+////
+////  EpisodeDetailsViewController.swift
+////  RickAndMortyApp
+////
+////  Created by Ana Ptskialadze on 02.06.24.
+////
 //
-//  EpisodeDetailsViewController.swift
-//  RickAndMortyApp
+//import UIKit
 //
-//  Created by Ana Ptskialadze on 02.06.24.
+//class EpisodeDetailsViewController: UIViewController {
+//    
+//    
+//    @IBOutlet weak var nameLabel: UILabel!
+//    @IBOutlet weak var dateLabel: UILabel!
+//    @IBOutlet weak var episodeLabel: UILabel!
+//    
+//    var episode: Episode?
+//    
+//    override func viewDidLoad() {
+//        setupUI()
+//    }
+//    
+//    func setupUI() {
+//        
+//        guard let episode = episode else {return}
+//        
+//        nameLabel.text = episode.name
+//        dateLabel.text = episode.air_date
+//        episodeLabel.text = episode.episode
+//    }
+//}
 //
-
-import UIKit
-
-class EpisodeDetailsViewController: UIViewController {
-    
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var episodeLabel: UILabel!
-    
-    var episode: Episode?
-    
-    override func viewDidLoad() {
-        setupUI()
-    }
-    
-    func setupUI() {
-        
-        guard let episode = episode else {return}
-        
-        nameLabel.text = episode.name
-        dateLabel.text = episode.air_date
-        episodeLabel.text = episode.episode
-    }
-}
-

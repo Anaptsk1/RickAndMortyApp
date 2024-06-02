@@ -54,7 +54,7 @@ class MainViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard tableView.indexPathForSelectedRow != nil else { return }
         
         switch segue.identifier {
         case "GoToCharacters":
