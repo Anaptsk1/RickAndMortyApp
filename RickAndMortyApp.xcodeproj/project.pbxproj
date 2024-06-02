@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		896A82692C0CEF2500C627D9 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A82682C0CEF2500C627D9 /* LocationDetailsViewController.swift */; };
+		896A826B2C0CEF4C00C627D9 /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896A826A2C0CEF4C00C627D9 /* EpisodeDetailsViewController.swift */; };
 		89D61E382BE2729B00C6FF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D61E372BE2729B00C6FF23 /* AppDelegate.swift */; };
 		89D61E3A2BE2729B00C6FF23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D61E392BE2729B00C6FF23 /* SceneDelegate.swift */; };
 		89D61E3C2BE2729B00C6FF23 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D61E3B2BE2729B00C6FF23 /* MainViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		896A82682C0CEF2500C627D9 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		896A826A2C0CEF4C00C627D9 /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
 		89D61E342BE2729B00C6FF23 /* RickAndMortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D61E372BE2729B00C6FF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89D61E392BE2729B00C6FF23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				89D61E7A2BEB78BC00C6FF23 /* LocationsViewController.swift */,
 				89D61E7C2BEB78E600C6FF23 /* EpisodesViewController.swift */,
 				89D61E802BF1081200C6FF23 /* CharacterDetailsViewController.swift */,
+				896A82682C0CEF2500C627D9 /* LocationDetailsViewController.swift */,
+				896A826A2C0CEF4C00C627D9 /* EpisodeDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +190,8 @@
 				89D61E4C2BE2803A00C6FF23 /* DataModel.swift in Sources */,
 				89D61E7D2BEB78E600C6FF23 /* EpisodesViewController.swift in Sources */,
 				89D61E522BE2CF2100C6FF23 /* NetworkManager.swift in Sources */,
+				896A82692C0CEF2500C627D9 /* LocationDetailsViewController.swift in Sources */,
+				896A826B2C0CEF4C00C627D9 /* EpisodeDetailsViewController.swift in Sources */,
 				89D61E3C2BE2729B00C6FF23 /* MainViewController.swift in Sources */,
 				89D61E502BE2C8B600C6FF23 /* CharactersViewController.swift in Sources */,
 				89D61E382BE2729B00C6FF23 /* AppDelegate.swift in Sources */,
