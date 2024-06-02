@@ -23,7 +23,6 @@ struct EpisodeResults: Codable {
 }
 
 struct Character: Codable {
-    
     var id: Int
     var name: String
     var status: String
@@ -31,7 +30,7 @@ struct Character: Codable {
     var origin: [String: String]
     var location: [String: String]
     var image: String
-    var episode: [String]
+    //var episode: [String]
 }
 
 struct Location: Codable {
@@ -39,8 +38,8 @@ struct Location: Codable {
     var id: Int
     var name: String
     var type: String
-    var residents: [String]
-    
+    var dimension: String
+    //var residents: [String]
 }
 
 struct Episode: Codable {
@@ -49,8 +48,7 @@ struct Episode: Codable {
     var name: String
     var air_date: String
     var episode: String
-    var characters: [String]
-    
+    //var characters: [String]
 }
 
 struct Info: Codable {
@@ -58,3 +56,4 @@ struct Info: Codable {
     let pages: Int
     let next: String?
 }
+

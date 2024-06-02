@@ -8,7 +8,7 @@
 import UIKit
 
 class CharacterDetailsViewController: UIViewController {
-    
+
     @IBOutlet weak var characterImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!

@@ -5,7 +5,6 @@
 //  Created by Ana Ptskialadze on 01.05.24.
 //
 import UIKit
-import CoreData
 
 class CharactersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     

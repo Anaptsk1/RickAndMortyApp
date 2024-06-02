@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import ChameleonFramework
 
 class MainViewController: UITableViewController {
     
@@ -24,6 +25,11 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath)
         cell.textLabel?.text = itemArray[indexPath.row]
+        
+//        if let colour = FlatSkyblue().darken(byPercentage:CGFloat(indexPath.row / itemArray!.count)) {
+//        cell.backgroundColor = colour
+//        }
+        
         return cell
         
     }
@@ -74,4 +80,9 @@ class MainViewController: UITableViewController {
         }
     }
 }
+
+
+
+
+
 
