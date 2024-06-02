@@ -13,13 +13,15 @@ class EpisodesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var searchBar: UISearchBar!
     
     var episodes: [Episode] = []
+    var filteredEpisodes: [Episode] = []
+    var isSearching = false
     var nextURL: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        //        searchBar.delegate = self
+        searchBar.delegate = self
         fetchEpisodesData()
     }
     
@@ -60,12 +62,12 @@ class EpisodesViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodes.count
+        return isSearching ? filteredEpisodes.count : episodes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath)
-        let episode = episodes[indexPath.row]
+        let episode = isSearching ? filteredEpisodes[indexPath.row] : episodes[indexPath.row]
         cell.textLabel?.text = episode.name
         return cell
     }
@@ -75,4 +77,40 @@ class EpisodesViewController: UIViewController, UITableViewDataSource, UITableVi
             fetchEpisodesData()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showEpisodeDetails", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEpisodeDetails",
+           let destinationVC = segue.destination as? EpisodeDetailsViewController,
+           let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.episode = episodes[indexPath.row]
+        }
+    }
+    
+    //MARK: - UISearchBar delegate methods
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            isSearching = false
+        } else {
+            isSearching = true
+            filteredEpisodes = episodes.filter { episode in
+                episode.name.lowercased().contains(searchText.lowercased())
+            }
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        tableView.reloadData()
+    }
 }
+
+    
