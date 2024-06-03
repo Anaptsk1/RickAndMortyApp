@@ -7,9 +7,33 @@
 
 import SwiftUI
 
+let contentItem = [
+    "Characters",
+    "Locations",
+    "Episodes"
+]
+
 struct ContentView: View {
+    
+    @ObservedObject var networkManager = NetworkManager()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                Section {
+                }
+                Section(content: {
+                    ForEach(contentItem, id: \.self) { item in
+                        NavigationLink(item, destination: CharacterListView())
+                    }
+                }, header: {
+                    Text("Choose your journey").bold().font(.callout)
+                })
+                
+            }
+            
+            .navigationTitle("RickAndMortyApp")
+        }
     }
 }
 
