@@ -20,8 +20,6 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                }
                 Section(content: {
                     ForEach(contentItem, id: \.self) { item in
                         NavigationLink(item, destination: CharacterListView())
@@ -36,6 +34,15 @@ struct ContentView: View {
         }
     }
 }
+
+//List(networkManager.posts) { post in
+//    NavigationLink(destination: DetailView(url: post.url)) {
+//        HStack {
+//            Text(String(post.points))
+//            Text(post.title)
+//        }
+//    }
+//}
 
 #Preview {
     ContentView()
