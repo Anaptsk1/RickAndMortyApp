@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-let contentItem = [
-    "Characters",
-    "Locations",
-    "Episodes"
-]
-
 struct ContentView: View {
     
     @ObservedObject var networkManager = NetworkManager()
@@ -20,29 +14,17 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section(content: {
-                    ForEach(contentItem, id: \.self) { item in
-                        NavigationLink(item, destination: CharacterListView())
-                    }
-                }, header: {
+                Section {
+                    NavigationLink("Characters", destination: CharactersView())
+                    //                    NavigationLink("Locations", destination: LocationsView())
+                    //                    NavigationLink("Episodes", destination: EpisodesView())
+                } header: {
                     Text("Choose your journey").bold().font(.callout)
-                })
-                
-            }
-            
-            .navigationTitle("RickAndMortyApp")
+                }
+            }.navigationTitle("RickAndMortyApp")
         }
     }
 }
-
-//List(networkManager.posts) { post in
-//    NavigationLink(destination: DetailView(url: post.url)) {
-//        HStack {
-//            Text(String(post.points))
-//            Text(post.title)
-//        }
-//    }
-//}
 
 #Preview {
     ContentView()

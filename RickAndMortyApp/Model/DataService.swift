@@ -22,7 +22,7 @@ struct EpisodeResults: Codable {
     var results: [Episode]
 }
 
-struct Character: Codable {
+struct Character: Codable, Identifiable {
     var id: Int
     var name: String
     var status: String
