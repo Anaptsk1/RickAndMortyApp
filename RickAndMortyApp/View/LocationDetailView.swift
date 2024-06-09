@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct LocationDetailView: View {
+    
+    var location: Location
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Name: \(location.name)")
+            Text("Status: \(location.type)")
+            Text("Origin: \(location.dimension)")
+        }
+        .padding()
+        .navigationTitle(location.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
-}
-
-#Preview {
-    LocationDetailView()
 }

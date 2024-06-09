@@ -25,6 +25,7 @@ struct CharactersView: View {
 }
 
 class CharactersViewModel: ObservableObject {
+    
     @Published var characters: [Character] = []
     
     func fetchCharacters() {

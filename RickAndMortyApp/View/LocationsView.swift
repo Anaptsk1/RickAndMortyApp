@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct LocationsView: View {
+    
+    @ObservedObject var viewmodel = LocationsViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(viewmodel.locations) { location in
+            NavigationLink(destination: LocationDetailView(location: location)) {
+                Text(location.name)
+            }
+        }
+        .onAppear {
+            viewmodel.fetchLocations()
+        }
+        .navigationTitle("Locations")
     }
 }
 
-#Preview {
-    LocationsView()
+class LocationsViewModel: ObservableObject {
+    
+    @Published var locations: [Location] = []
+    
+    func fetchLocations () {
+        NetworkManager.shared.fetchData(from: .locations) {(result: Result<LocationResults, any Error>) in
+            switch result {
+            case .success(let locationResults):
+                self.locations = locationResults.results
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
+
+

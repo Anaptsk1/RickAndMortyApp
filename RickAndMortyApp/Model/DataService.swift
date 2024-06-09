@@ -33,7 +33,7 @@ struct Character: Codable, Identifiable {
     //var episode: [String]
 }
 
-struct Location: Codable {
+struct Location: Codable, Identifiable {
     
     var id: Int
     var name: String

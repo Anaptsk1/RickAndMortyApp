@@ -16,7 +16,7 @@ struct ContentView: View {
             List {
                 Section {
                     NavigationLink("Characters", destination: CharactersView())
-                    //                    NavigationLink("Locations", destination: LocationsView())
+                    NavigationLink("Locations", destination: LocationsView())
                     //                    NavigationLink("Episodes", destination: EpisodesView())
                 } header: {
                     Text("Choose your journey").bold().font(.callout)
